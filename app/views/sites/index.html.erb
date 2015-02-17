@@ -1,0 +1,6 @@
+<% if session[:user_name] %>
+    <%= session[:user_name] %>
+    <%= link_to 'logout', '/logout' %>
+<% else %>
+  <a href='/auth/dropbox'>Log in</a>
+<% end %>
