@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	  user.email = auth["extra"]["raw_info"]["email"]
 	  user.provider = auth["provider"]
 	  user.uid = auth["uid"]
-	  user.name = auth["extra"]['raw_info']['login']
+	  user.name = auth["extra"]['raw_info']['display_name']
 	end
     end
 end
