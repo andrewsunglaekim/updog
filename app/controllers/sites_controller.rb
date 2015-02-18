@@ -7,7 +7,6 @@ class SitesController < ApplicationController
   end
   def show
     @site = Site.find_by( user_id: session[:user_id], id: params[:id] )
-    @content = get_client.get_file( @site.name+ '/index.html' )
   end
   def load
     @site = Site.find_by(name: request.subdomain)
