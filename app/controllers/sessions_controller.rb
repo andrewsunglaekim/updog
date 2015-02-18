@@ -1,11 +1,30 @@
+require 'dropbox_sdk'
 class SessionsController < ApplicationController
+  def get_auth
+    redirect_uri = 'http://localhost:3000/auth/dropbox/callback'
+    flow = DropboxOAuth2Flow.new( ENV['db_key'], ENV['db_secret'], redirect_uri, session, :dropbox_auth_csrf_token)
+  end
+  def new
+     auth_url = get_auth.start
+     redirect_to auth_url
+  end
+  def index
+    if session['access_token'] != ''
+      @user = get_dropbox_client.account_info['display_name']
+    end
+  end
   def create     
-    auth = request.env["omniauth.auth"]     
-    user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)     
-    session[:user_id] = user.id     
-    session[:token] = auth["credentials"]["token"]
-    session[:tokensecret] = auth["credentials"]["secret"]
-    session[:user_name] = auth["extra"]["raw_info"]["display_name"]
+    code = params[:code]
+    access_token, user_id, url_state = get_auth.finish(params)
+    session['access_token'] = access_token
+    @db = get_client
+    name = @db.account_info['display_name']
+    email = @db.account_info['email']
+    uid = @db.account_info['uid']
+    user = User.find_by_provider_and_uid('dropbox', user_id) || User.create_with_omniauth(email, uid, name)     
+    session[:user_id] = uid
+    session[:access_token] = access_token
+    session[:user_name] = name
     redirect_to '/'
   end
   def destroy

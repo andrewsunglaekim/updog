@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'omniauth'
-gem 'omniauth-dropbox'
 gem 'figaro'
+gem 'dropbox-sdk' 
+gem 'httparty'
+gem 'pry'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'

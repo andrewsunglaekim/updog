@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
-  def self.create_with_omniauth(auth)
+  has_many :sites
+  def self.create_with_omniauth( email, uid, name )
 	create! do |user|
-	  user.email = auth["extra"]["raw_info"]["email"]
-	  user.provider = auth["provider"]
-	  user.uid = auth["uid"]
-	  user.name = auth["extra"]['raw_info']['display_name']
+	  user.email = email
+	  user.provider = 'dropbox'
+	  user.uid = uid
+	  user.name = name
 	end
     end
 end

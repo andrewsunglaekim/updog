@@ -1,6 +1,10 @@
 <% if session[:user_name] %>
     <%= session[:user_name] %>
     <%= link_to 'logout', '/logout' %>
+    <%= link_to 'new site', new_site_path %>
+    <% @sites.each do |s| %>
+      <%= link_to s.name, site_path( s.id ) %>
+    <% end %>
 <% else %>
   <a href='/auth/dropbox'>Log in</a>
 <% end %>
