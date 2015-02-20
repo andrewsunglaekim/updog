@@ -1,7 +1,7 @@
 require 'dropbox_sdk'
 class SessionsController < ApplicationController
   def get_auth
-    redirect_uri = 'https://updog.co/auth/dropbox/callback'
+    redirect_uri = ENV['db_callback']
     flow = DropboxOAuth2Flow.new( ENV['db_key'], ENV['db_secret'], redirect_uri, session, :dropbox_auth_csrf_token)
   end
   def new

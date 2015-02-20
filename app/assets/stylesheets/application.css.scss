@@ -24,3 +24,28 @@ h1 a{
   color: inherit;
   text-decoration:none;
 }
+
+header > h1{
+  margin-bottom:.5em;
+  margin-top:0;
+}
+
+header{
+  border-bottom: 1px solid #eee;
+  padding:1em 0;
+}
+
+.main{
+  padding:3em 0;
+}
+
+.site-new{
+  border:1px solid darken(lightGreen, 20%);
+  display:inline-block;
+  background:lightGreen;
+  color:#fff;
+  text-decoration:none;
+  padding:1em;
+  text-shadow:1px 1px 0 darken(lightGreen, 30%);
+  font-weight:bold;
+}

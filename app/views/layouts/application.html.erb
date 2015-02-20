@@ -7,9 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
   <h1><a href='/'>UpDog</a></h1>
+<% if session[:user_name] %>
+    Logged in as <%= session[:user_name] %>.
+    <%= link_to 'logout', '/logout' %>
+<% else %>
+  <a href='/auth/dropbox'>Log in</a>
+<% end %>
+</header>
 
+<section class='main'>
 <%= yield %>
+</section>
 
 </body>
 </html>
