@@ -4,6 +4,7 @@ gem 'figaro'
 gem 'dropbox-sdk' 
 gem 'httparty'
 gem 'pry'
+gem 'rails_12factor'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
