@@ -17,3 +17,8 @@
 body{
   font-family:'Helvetica Neue', sans-serif;
 }
+
+h1 a{
+  color: inherit;
+  text-decoration:none;
+}
