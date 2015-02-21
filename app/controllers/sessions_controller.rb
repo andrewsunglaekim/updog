@@ -15,7 +15,10 @@ class SessionsController < ApplicationController
   end
   def create     
     code = params[:code]
-    access_token, user_id, url_state = get_auth.finish(params)
+    begin
+      access_token, user_id, url_state = get_auth.finish(params)
+    rescue Exception
+    end
     session['access_token'] = access_token
     @db = get_client
     name = @db.account_info['display_name']
