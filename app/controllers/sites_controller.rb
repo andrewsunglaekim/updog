@@ -27,6 +27,7 @@ class SitesController < ApplicationController
     @db = get_client
     if @site.save
       @db.file_create_folder( @site.name )
+      @db.put_file('/' + @site.name + '/index.html', open(Rails.public_path + 'welcome.html') )
       redirect_to root_url
     else
       render :new
