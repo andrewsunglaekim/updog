@@ -1,4 +1,5 @@
 class SitesController < ApplicationController
+  protect_from_forgery except: :load
   def index
     @sites = Site.where( user_id: session[:user_id] )
   end
@@ -10,8 +11,10 @@ class SitesController < ApplicationController
   end
   def load
     @site = Site.find_by(name: request.subdomain)
-    @content = get_client.get_file( @site.name + '/index.html' )
-    render :layout => false
+    @content = @site.content get_client, request.env['PATH_INFO']
+    respond_to do |format|
+      format.all { render :html => @content, :layout => false }
+    end
   end
   def create
     @site = Site.new site_params.merge( user_id: session[:user_id] )

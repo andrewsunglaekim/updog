@@ -5,6 +5,7 @@ gem 'dropbox-sdk'
 gem 'httparty'
 gem 'pry'
 gem 'rails_12factor'
+gem 'dalli'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
