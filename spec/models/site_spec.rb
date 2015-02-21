@@ -15,8 +15,13 @@ describe Site do
     expect(s.name).to eq('jimmy-johns')
     s.destroy
   end
-  it "should replace non-word chars" do
+  it "should not end with a hyphen" do
     s = Site.create( name: 'Jimmy Johns!!!' )
+    expect(s.name).to eq('jimmy-johns')
+    s.destroy
+  end
+  it "should not start with a hyphen" do
+    s = Site.create( name: '!!!Jimmy Johns!!!' )
     expect(s.name).to eq('jimmy-johns')
     s.destroy
   end

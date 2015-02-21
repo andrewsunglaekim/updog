@@ -35,5 +35,6 @@ class Site < ActiveRecord::Base
     self.name.downcase!
     self.name = self.name.gsub(/[^\w+]/,'-')
     self.name = self.name.gsub(/-+$/,'')
+    self.name = self.name.gsub(/^-+/,'')
   end
 end
