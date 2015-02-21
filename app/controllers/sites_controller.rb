@@ -11,6 +11,7 @@ class SitesController < ApplicationController
   def load
     @site = Site.find_by(name: request.subdomain)
     @content = get_client.get_file( @site.name + '/index.html' )
+    render :layout => false
   end
   def create
     @site = Site.new site_params.merge( user_id: session[:user_id] )
