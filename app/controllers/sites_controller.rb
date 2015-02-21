@@ -16,6 +16,10 @@ class SitesController < ApplicationController
   end
   def load
     @site = Site.find_by(name: request.subdomain)
+    if !@site
+     render :html => 'Not Found', :layout => true
+     return
+    end
     begin
       @content = @site.content get_client( @site.creator.access_token ), request.env
     rescue Exception => err
