@@ -29,7 +29,7 @@ class SitesController < ApplicationController
     @site = Site.new site_params.merge( user_id: session[:user_id] )
     @site.name.downcase!
     @site.domain = @site.name + '.updog.co'
-    @db = get_client @site.user.access_token
+    @db = get_client @site.creator.access_token
     if @site.save
       begin
       @db.file_create_folder( @site.name )
