@@ -1,4 +1,4 @@
-
+<% if session['access_token'] %>
     <%= link_to 'Create New Site', new_site_path, :class => 'site-new' %>
     <h2>Your Sites:</h2>
     <ul>
@@ -6,3 +6,5 @@
 	<li><%= link_to s.name, site_path( s.id ) %></li>
       <% end %>
     </ul>
+
+<% end %>
