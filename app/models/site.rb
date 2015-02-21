@@ -8,7 +8,6 @@ class Site < ActiveRecord::Base
 	client.get_file( self.name + path ).html_safe
       else
 	client.get_file( self.name + '/index.html' ).html_safe
-
       end
     end
   end

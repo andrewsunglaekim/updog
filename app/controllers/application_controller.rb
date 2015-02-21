@@ -4,8 +4,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  def get_client
-    at = session['access_token'] || ENV['access_token']
+  def get_client at
     return DropboxClient.new(at)
   end
 

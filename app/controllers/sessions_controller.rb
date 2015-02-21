@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
     rescue Exception
     end
     session['access_token'] = access_token
-    @db = get_client
+    @db = get_client access_token
     name = @db.account_info['display_name']
     email = @db.account_info['email']
     uid = @db.account_info['uid']
@@ -28,6 +28,8 @@ class SessionsController < ApplicationController
     session[:user_id] = uid
     session[:access_token] = access_token
     session[:user_name] = name
+    user.access_token = access_token
+    user.save
     redirect_to '/'
   end
   def destroy
