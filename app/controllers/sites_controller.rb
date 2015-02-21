@@ -9,6 +9,11 @@ class SitesController < ApplicationController
   def show
     @site = Site.find_by( user_id: session[:user_id], id: params[:id] )
   end
+  def destroy
+    @site = Site.find_by( user_id: session[:user_id], id: params[:id] )
+    @site.destroy
+    redirect_to sites_path
+  end
   def load
     @site = Site.find_by(name: request.subdomain)
     begin
@@ -26,8 +31,11 @@ class SitesController < ApplicationController
     @site.domain = @site.name + '.updog.co'
     @db = get_client
     if @site.save
+      begin
       @db.file_create_folder( @site.name )
       @db.put_file('/' + @site.name + '/index.html', open(Rails.public_path + 'welcome.html') )
+      rescue
+      end
       redirect_to root_url
     else
       render :new
