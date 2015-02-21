@@ -8,10 +8,18 @@ class Site < ActiveRecord::Base
 
   def content client, path = ''
     Rails.cache.fetch("#{cache_key}/#{path}", expires_in: 30.seconds) do
-      if path != '/'
-	client.get_file( self.name + path ).html_safe
-      else
-	client.get_file( self.name + '/index.html' ).html_safe
+      begin 
+	if path != '/'
+	  client.get_file( self.name + '/_site/' + path ).html_safe
+	else
+	  client.get_file( self.name + '/_site/index.html' ).html_safe
+	end
+      rescue
+	if path != '/'
+	  client.get_file( self.name + path ).html_safe
+	else
+	  client.get_file( self.name + '/index.html' ).html_safe
+	end
       end
     end
   end
