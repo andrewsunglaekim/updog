@@ -7,6 +7,10 @@ gem 'pry'
 gem 'rails_12factor'
 gem 'dalli'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
 # Use sqlite3 as the database for Active Record

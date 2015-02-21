@@ -1,6 +1,7 @@
 class Site < ActiveRecord::Base
   belongs_to :user
   validates :name, uniqueness: { case_sensititve: false }
+  before_save :namify
 
   def creator
     User.find_by( uid: self.user_id.to_s )
@@ -28,5 +29,11 @@ class Site < ActiveRecord::Base
 	end
       end
     end
+  end
+  private
+   def  namify
+    self.name.downcase!
+    self.name = self.name.gsub(/[^\w+]/,'-')
+    self.name = self.name.gsub(/-+$/,'')
   end
 end
