@@ -6,7 +6,13 @@ class Site < ActiveRecord::Base
     User.find_by( uid: self.user_id.to_s )
   end
 
-  def content client, path = ''
+  def content client, env 
+    if env['REQUEST_URI'][-1] == "/"
+      path = env['PATH_INFO'] + "/index.html"
+    else
+      path = env['PATH_INFO']
+    end
+    puts path
     Rails.cache.fetch("#{cache_key}/#{path}", expires_in: 30.seconds) do
       begin 
 	if path != '/'
