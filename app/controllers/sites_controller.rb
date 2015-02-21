@@ -17,7 +17,7 @@ class SitesController < ApplicationController
   def load
     @site = Site.find_by(name: request.subdomain)
     begin
-      @content = @site.content get_client, request.env['PATH_INFO']
+      @content = @site.content get_client( @site.creator.access_token ), request.env['PATH_INFO']
     rescue Exception => err
       @content = err
     end
