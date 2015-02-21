@@ -18,10 +18,13 @@ class SitesController < ApplicationController
   end
   def create
     @site = Site.new site_params.merge( user_id: session[:user_id] )
+    @site.domain = @site.name + '.updog.co'
     @db = get_client
-    @db.file_create_folder( @site.name )
     if @site.save
+      @db.file_create_folder( @site.name )
       redirect_to root_url
+    else
+      render :new
     end
   end
 

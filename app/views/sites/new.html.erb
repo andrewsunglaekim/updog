@@ -1,3 +1,10 @@
+<% if @site.errors.any? %>
+  <ul>
+  <% @site.errors.full_messages.each do |e| %>
+    <li> <%= e %></li>
+  <% end %>
+  </ul>
+<% end %>
 <%= form_for @site do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
