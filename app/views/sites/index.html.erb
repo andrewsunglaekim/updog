@@ -3,7 +3,7 @@
     <h2>Your Sites:</h2>
     <ul>
       <% @sites.each do |s| %>
-	<li><%= link_to '//' + s.domain, site_path( s.id ) %></li>
+	<li><%= link_to s.domain, site_path( s.id ) %></li>
       <% end %>
     </ul>
 
