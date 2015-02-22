@@ -1,0 +1,15 @@
+<div class='wrapper'>
+  <h2>Admin</h2>
+  <h3><%= @users.length %> total users.</h3>
+  <ul>
+  <% @users.each do |u| %>
+    <li><%= u.name %> <small>(<%= u.email %>)</small></li>
+  <% end %>
+</ul>
+  <h3><%= @sites.length %> total sites.</h3>
+  <ul>
+  <% @sites.each do |s| %>
+    <li><%= link_to 'https://' + s.domain, 'https://' + s.domain %></li>
+  <% end %>
+  </ul>
+</div>

@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   get '/source', to: 'pages#source'
   get '/pricing', to: 'pages#pricing'
+  get '/admin', to: 'pages#admin'
 end

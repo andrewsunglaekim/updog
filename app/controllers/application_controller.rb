@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
     return DropboxClient.new(at)
   end
 
+  def current_user
+    User.find_by( access_token: session['access_token'] )
+  end
+
 end

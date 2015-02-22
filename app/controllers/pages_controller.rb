@@ -9,4 +9,12 @@ class PagesController < ApplicationController
   def source
   end
   
+  def admin
+    if current_user && current_user.id == 1
+      @users = User.all
+      @sites = Site.all
+    else
+      redirect_to root_path
+    end
+  end
 end
