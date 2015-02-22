@@ -31,8 +31,6 @@ class SitesController < ApplicationController
   end
   def create
     @site = Site.new site_params.merge( user_id: session[:user_id] )
-    @site.name.downcase!
-    @site.domain = @site.name + '.updog.co'
     @db = get_client @site.creator.access_token
     if @site.save
       begin
