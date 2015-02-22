@@ -8,17 +8,24 @@
 </head>
 <body>
   <header>
-  <h1><a href='http://updog.co'>UpDog</a></h1>
-<% if session[:user_name] %>
-    Logged in as <%= session[:user_name] %>.
-    <%= link_to 'logout', '/logout' %>
-<% else %>
-  <a href='http://updog.co/auth/dropbox'>Log in</a>
-<% end %>
+  <div class='wrapper'>
+  <h1><a href='http://updog.co'><span>&#10145;</span> UpDog</a></h1>
+  <nav>
+  <a href='/about' class='active'>About</a>
+  <a href='/source'>View Source</a>
+  <a href='/pricing'>Pricing</a>
+    <% if session[:user_name] %>
+	Logged in as <%= session[:user_name] %>.
+	<%= link_to 'logout', '/logout' %>
+    <% else %>
+      <a href='http://updog.co/auth/dropbox'>Log in</a>
+    <% end %>
+  </nav>
+</div>
 </header>
 
 <section class='main'>
-<%= yield %>
+    <%= yield %>
 </section>
 
 <script type="text/javascript">

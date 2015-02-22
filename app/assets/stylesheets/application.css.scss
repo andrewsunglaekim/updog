@@ -16,9 +16,26 @@
 
 body{
   font-family:'Helvetica Neue', sans-serif;
-  width:80%;
   line-height:1.5;
+  margin:0;
+  background:#fefefe;
+}
+.wrapper{
+  width:80%;
   margin:auto;
+}
+
+.splash{
+  background:url(https://ununsplash.imgix.net/photo-1416431168657-a6c4184348ab?q=75&fm=jpg&s=20ba248730c200af0d30c9ba81854867);
+  padding:2em 0;
+  background-size:cover;
+  background-position:0 -10px;
+  background-repeat: no-repeat;
+  color:#fff;
+  h2{
+    text-shadow: 1px 1px 0 #000;
+    font-size:2em;
+}
 }
 
 h1 a{
@@ -26,19 +43,33 @@ h1 a{
   text-decoration:none;
 }
 
-header > h1{
-  margin-bottom:.5em;
-  margin-top:0;
+header .wrapper > h1{
+  margin:0;
+  display:inline-block;
+  width:50px;
+  background: url(image-path('updog.png'));
+  background-repeat: no-repeat;
+  background-size:30px;
+  text-indent: -999em;
+  position:relative;
+  background-position:10px 8px;
+  span{
+    display:none;
+    position:absolute;
+    left:0;
+    text-indent:0;
+    transform:rotate(-90deg);
+  }
 }
 
 header{
-  border-bottom: 1px solid #eee;
   padding:1em 0;
+  background:#fff;
+  a{
+    display:block;
+  }
 }
 
-.main{
-  padding:3em 0;
-}
 
 .site-new{
   border:1px solid darken(lightGreen, 20%);
@@ -49,4 +80,18 @@ header{
   padding:1em;
   text-shadow:1px 1px 0 darken(lightGreen, 40%);
   font-weight:bold;
+}
+
+nav{
+  float:right;
+  a{
+    display:inline-block;
+    font-family:'Lucida Grande';
+    font-size:.8em;
+    letter-spacing:.05em;
+    text-decoration:none;
+    color:inherit;
+    padding:1.25em;
+    position:relative;
+  }
 }
