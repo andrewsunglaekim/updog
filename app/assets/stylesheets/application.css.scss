@@ -22,7 +22,13 @@ body{
 }
 .wrapper{
   width:80%;
+  max-width:40em;
   margin:auto;
+  &:after{
+    content:' ';
+    display:table;
+    clear:both;
+  }
 }
 
 .splash{
@@ -46,6 +52,7 @@ h1 a{
 header .wrapper > h1{
   margin:0;
   display:inline-block;
+  float:left;
   width:50px;
   background: url(image-path('updog.png'));
   background-repeat: no-repeat;
@@ -125,4 +132,20 @@ nav{
     li:first-child a{
       border-top:1px solid #eee;
     }
+}
+
+@media all and(max-width:40em){
+  header .wrapper > h1{
+    float:none;
+    display:block;
+    margin:auto;
+  }
+  nav{
+    float:none;
+    width:100%;
+    text-align:center;
+    a{
+      padding:.5em .25em;
+    }
+  }
 }
