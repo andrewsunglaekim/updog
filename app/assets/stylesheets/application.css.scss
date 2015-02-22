@@ -54,7 +54,7 @@ header .wrapper > h1{
   display:inline-block;
   float:left;
   width:50px;
-  background: url(image-path('updog.png'));
+  background: url(asset_path('updog.png'));
   background-repeat: no-repeat;
   background-size:30px;
   text-indent: -999em;
