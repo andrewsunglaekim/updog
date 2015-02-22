@@ -38,7 +38,7 @@ class SitesController < ApplicationController
       @db.put_file('/' + @site.name + '/index.html', open(Rails.public_path + 'welcome.html') )
       rescue
       end
-      redirect_to root_url
+      redirect_to @site
     else
       render :new
     end

@@ -1,3 +1,5 @@
+<div class='wrapper'>
+  <h2>Create New Site</h2>
 <% if @site.errors.any? %>
   <ul>
   <% @site.errors.full_messages.each do |e| %>
@@ -10,3 +12,4 @@
   <%= f.text_field :name %>
   <%= f.submit %>
 <% end %>
+</div>

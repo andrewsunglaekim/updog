@@ -1,4 +1,5 @@
-<h2><%= @site.name %></h2>
+<div class='wrapper'>
+<h2><%= @site.domain %></h2>
 Created at <time><%= @site.created_at.strftime("%B %d, %Y") %></time>
 
 <a href='http://<%= @site.name %>.updog.co'>View Site</a> | 
@@ -9,3 +10,4 @@ Created at <time><%= @site.created_at.strftime("%B %d, %Y") %></time>
   <li>Add your site to your Dropbox folder in <strong>~/Dropbox/Apps/updog/<%= @site.name %></strong></li>
   <li><a href='//<%= @site.domain %>'> View Site </a></li>
 </ol>
+</div>

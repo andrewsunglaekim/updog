@@ -2,21 +2,20 @@
 <html>
 <head>
   <title>updog</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <header>
   <div class='wrapper'>
-  <h1><a href='http://updog.co'><span>&#10145;</span> UpDog</a></h1>
+  <h1><a href='/'><span>&#10145;</span> UpDog</a></h1>
   <nav>
   <a href='/about' class='active'>About</a>
   <a href='/source'>View Source</a>
   <a href='/pricing'>Pricing</a>
     <% if session[:user_name] %>
-	Logged in as <%= session[:user_name] %>.
-	<%= link_to 'logout', '/logout' %>
+	<%= link_to 'Logout &nbsp;'.html_safe + session[:user_name], '/logout' %>
     <% else %>
       <a href='http://updog.co/auth/dropbox'>Log in</a>
     <% end %>

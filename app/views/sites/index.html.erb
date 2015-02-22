@@ -1,11 +1,17 @@
 <% if session['access_token'] %>
+  <div class='wrapper'>
+      <div class='sites'>
     <%= link_to 'Create New Site', new_site_path, :class => 'site-new' %>
-    <h2>Your Sites:</h2>
-    <ul>
-      <% @sites.each do |s| %>
-	<li><%= link_to s.domain, site_path( s.id ) %></li>
-      <% end %>
-    </ul>
+    <% if @sites %>
+      <h2>Your Sites:</h2>
+      <ul >
+	<% @sites.each do |s| %>
+	  <li><%= link_to s.domain, site_path( s.id ) %></li>
+	<% end %>
+      </ul>
+    <% end %>
+    </div>
+  </div>
 
   <% else %>
     <div class='splash'>

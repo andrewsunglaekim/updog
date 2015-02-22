@@ -77,9 +77,15 @@ header{
   background:lightGreen;
   color:#fff;
   text-decoration:none;
-  padding:1em;
+  padding:.75em 1em;
   text-shadow:1px 1px 0 darken(lightGreen, 40%);
   font-weight:bold;
+}
+
+.js-fit{
+  margin:0;
+  line-height:1;
+  text-align:center;
 }
 
 nav{
@@ -94,4 +100,29 @@ nav{
     padding:1.25em;
     position:relative;
   }
+}
+
+.sites{
+  padding:2em 0;
+}
+
+.sites h2{
+  margin-top:2em;
+}
+
+.sites ul{
+  margin:0;
+  padding:0;
+  list-style:none;
+  a{
+    display:block;
+    padding:1em 0;
+    border-bottom:1px solid #eee;
+    font-weight:bold;
+    text-decoration:none;
+    color:inherit;
+  }
+    li:first-child a{
+      border-top:1px solid #eee;
+    }
 }

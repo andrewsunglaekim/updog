@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   get '/auth/dropbox', to: 'sessions#new'
   match '/*req', to: 'sites#load', constraints: { subdomain: /.+/ }, via: [:get, :post, :put, :patch, :delete]
   resources :sites
+  get '/about', to: 'pages#about'
+  get '/source', to: 'pages#source'
+  get '/pricing', to: 'pages#pricing'
 end
