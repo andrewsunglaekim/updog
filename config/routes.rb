@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get '/source', to: 'pages#source'
   get '/pricing', to: 'pages#pricing'
   get '/admin', to: 'pages#admin'
+  get '/webhook', to 'webhook#challenge'
+  post '/webhook', to 'webhook#post'
 end
