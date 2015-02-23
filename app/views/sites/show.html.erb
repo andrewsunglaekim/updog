@@ -3,6 +3,7 @@
 Created at <time><%= @site.created_at.strftime("%B %d, %Y") %></time>
 
 <a href='http://<%= @site.name %>.updog.co'>View Site</a> | 
+<%= link_to 'Edit Site', edit_site_path( @site ) %> | 
 <%= link_to 'Delete Site', site_path( @site ), method: :delete %>
 
 <h3>Instructions</h3>

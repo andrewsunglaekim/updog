@@ -3,6 +3,9 @@ class SitesController < ApplicationController
   def index
     @sites = Site.where( uid: session[:user_id] )
   end
+  def edit
+    @site = Site.find_by( uid: session[:user_id], id: params[:id] )
+  end
   def new
     @site = Site.new
   end
@@ -41,6 +44,14 @@ class SitesController < ApplicationController
       redirect_to @site
     else
       render :new
+    end
+  end
+  def update
+    @site = Site.find_by( uid: session[:user_id], id: params[:id] )
+    if @site.update site_params.merge( uid: session[:user_id] )
+      redirect_to @site
+    else
+      render :edit
     end
   end
 
