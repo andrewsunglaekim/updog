@@ -1,8 +1,11 @@
 class WebhookController < ApplicationController
   def challenge
-    params[:challenge]
+    respond_to do |format|
+      c =  params[:challenge]
+      format.all { render :html => c, :layout => false }
+    end
   end
   def post
-    params
+    p params
   end
 end
