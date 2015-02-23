@@ -1,4 +1,4 @@
-class WebhooksController < ApplicationController
+class WebhookController < ApplicationController
   def challenge
     params[:challenge]
   end
