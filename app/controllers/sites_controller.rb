@@ -15,7 +15,7 @@ class SitesController < ApplicationController
     redirect_to sites_path
   end
   def load
-    @site = Site.find_by(name: request.subdomain)
+    @site = Site.where("domain = ? OR subdomain = ?", request.host, request.host).first
     if !@site
      render :html => 'Not Found', :layout => true
      return

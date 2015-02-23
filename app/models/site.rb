@@ -44,7 +44,7 @@ class Site < ActiveRecord::Base
     self.name = self.name.gsub(/[^\w+]/,'-')
     self.name = self.name.gsub(/-+$/,'')
     self.name = self.name.gsub(/^-+/,'')
-    self.domain = self.name + '.updog.co'
+    self.subdomain = self.name + '.updog.co'
   end
 
 end
