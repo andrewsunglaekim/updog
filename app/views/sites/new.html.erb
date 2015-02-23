@@ -9,7 +9,11 @@
 <% end %>
 <%= form_for @site do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name %>.updog.co
+  <br>
+  <%= f.label :domain %>
+  <%= f.text_field :domain %> (optional)
+  <br>
   <%= f.submit %>
 <% end %>
 </div>

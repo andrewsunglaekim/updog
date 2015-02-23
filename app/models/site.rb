@@ -1,6 +1,7 @@
 class Site < ActiveRecord::Base
   belongs_to :user, :foreign_key => :uid, :primary_key => :uid
-  validates :name, uniqueness: { case_sensititve: false }
+  validates :subdomain, uniqueness: { case_sensititve: false }
+  validates :domain, uniqueness: { case_sensititve: false, allow_nil: true }
   validate :user_has_less_than_5_sites
   before_save :namify
 
