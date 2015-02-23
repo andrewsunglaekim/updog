@@ -1,4 +1,5 @@
 class WebhookController < ApplicationController
+  protect_from_forgery except: :post
   def challenge
     respond_to do |format|
       c =  params[:challenge]
