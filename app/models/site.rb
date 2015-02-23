@@ -1,5 +1,5 @@
 class Site < ActiveRecord::Base
-  belongs_to :user, :foreign_key => :uid
+  belongs_to :user, :foreign_key => :uid, :primary_key => :uid
   validates :name, uniqueness: { case_sensititve: false }
   validate :user_has_less_than_5_sites
   before_save :namify
@@ -33,6 +33,9 @@ class Site < ActiveRecord::Base
   end
 
   def user_has_less_than_5_sites
+    if self.user.sites.length > 4 
+      errors.add(:number_of_sites, "can't be greater than 5")
+    end
   end
 
   private
