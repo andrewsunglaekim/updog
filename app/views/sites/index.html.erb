@@ -1,8 +1,10 @@
 <% if session['access_token'] %>
   <div class='wrapper'>
       <div class='sites'>
-    <%= link_to 'Create New Site', new_site_path, :class => 'site-new' %>
-    <% if @sites %>
+	<% if @sites.length < 5 %>
+	  <%= link_to "Create New Site (#{5 - @sites.length} left)", new_site_path, :class => 'site-new' %>
+	<% end %>
+    <% if @sites.length != 0 %>
       <h2>Your Sites:</h2>
       <ul >
 	<% @sites.each do |s| %>

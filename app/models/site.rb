@@ -1,10 +1,11 @@
 class Site < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, :foreign_key => :uid
   validates :name, uniqueness: { case_sensititve: false }
+  validate :user_has_less_than_5_sites
   before_save :namify
 
   def creator
-    User.find_by( uid: self.user_id.to_s )
+    User.find_by( uid: self.uid )
   end
 
   def content client, env 
@@ -30,6 +31,10 @@ class Site < ActiveRecord::Base
       end
     end
   end
+
+  def user_has_less_than_5_sites
+  end
+
   private
    def  namify
     self.name.downcase!
@@ -38,4 +43,5 @@ class Site < ActiveRecord::Base
     self.name = self.name.gsub(/^-+/,'')
     self.domain = self.name + '.updog.co'
   end
+
 end

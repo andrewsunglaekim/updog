@@ -1,16 +1,16 @@
 class SitesController < ApplicationController
   protect_from_forgery except: :load
   def index
-    @sites = Site.where( user_id: session[:user_id] )
+    @sites = Site.where( uid: session[:user_id] )
   end
   def new
     @site = Site.new
   end
   def show
-    @site = Site.find_by( user_id: session[:user_id], id: params[:id] )
+    @site = Site.find_by( uid: session[:user_id], id: params[:id] )
   end
   def destroy
-    @site = Site.find_by( user_id: session[:user_id], id: params[:id] )
+    @site = Site.find_by( uid: session[:user_id], id: params[:id] )
     @site.destroy
     redirect_to sites_path
   end
@@ -30,7 +30,7 @@ class SitesController < ApplicationController
     end
   end
   def create
-    @site = Site.new site_params.merge( user_id: session[:user_id] )
+    @site = Site.new site_params.merge( uid: session[:user_id] )
     @db = get_client @site.creator.access_token
     if @site.save
       begin
