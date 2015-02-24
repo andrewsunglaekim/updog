@@ -7,10 +7,15 @@
 <% end %>
 <%= form_for @site do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>.updog.co
+  <div class='suffix-domain'>
+    <%= f.text_field :name %>
+  </div>
   <br>
+  <div style='display:none'>
   <%= f.label :domain %>
   <%= f.text_field :domain %> (optional)
   <br>
-  <%= f.submit %>
+  <br>
+  </div>
+  <%= f.submit 'Save', :class => 'btn-create' %>
 <% end %>

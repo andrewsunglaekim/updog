@@ -177,6 +177,7 @@ nav{
   display:inline-block;
   padding:.5em 1em;
   text-decoration:none;
+  cursor:pointer;
   border-radius:3px;
   font-size:.8em;
   font-size:.8em;
@@ -198,4 +199,6 @@ nav{
   @include colorize(#54C65D);
 }
 
-
+.suffix-domain:after{
+  content:'.updog.co'
+}
