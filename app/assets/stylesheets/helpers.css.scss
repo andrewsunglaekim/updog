@@ -1,0 +1,24 @@
+.left{
+  float:left;
+}
+.right{
+  float:right;
+}
+
+@media all and (max-width:40em){
+  .left, .right{
+    float:none;
+    text-align:center;
+  }
+  .left + .right{
+    margin-top:1em;
+  }
+}
+
+.cf, .clearfix{
+  &:after{
+    content:' ';
+    display:table;
+    clear:both;
+  }
+}

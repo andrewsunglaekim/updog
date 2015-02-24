@@ -1,12 +1,17 @@
 <% if session['access_token'] %>
   <div class='wrapper'>
       <div class='sites'>
-    <%= link_to 'Create New Site', new_site_path, :class => 'site-new' %>
-    <% if @sites %>
+	<% if @sites.length < 5 %>
+	  <%= link_to "Create New Site (#{5 - @sites.length} left)", new_site_path, :class => 'site-new btn-create' %>
+	<% end %>
+    <% if @sites.length != 0 %>
       <h2>Your Sites:</h2>
       <ul >
 	<% @sites.each do |s| %>
-	  <li><%= link_to s.domain, site_path( s.id ) %></li>
+	  <li class='cf'>
+
+	  <div class='left'><%= link_to s.name, site_path( s.id ) %> </div> <div class='right'> <%= link_to 'Edit Site', edit_site_path( s ), :class => 'btn-edit' %> <%= link_to 'Delete Site', site_path( s ), :class=> 'btn-delete', method: :delete %> </div>
+	  </li>
 	<% end %>
       </ul>
     <% end %>

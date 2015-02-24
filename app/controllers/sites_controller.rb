@@ -1,21 +1,25 @@
 class SitesController < ApplicationController
   protect_from_forgery except: :load
   def index
-    @sites = Site.where( user_id: session[:user_id] )
+    @sites = Site.where( uid: session[:user_id] )
+  end
+  def edit
+    @site = Site.find_by( uid: session[:user_id], id: params[:id] )
   end
   def new
     @site = Site.new
   end
   def show
-    @site = Site.find_by( user_id: session[:user_id], id: params[:id] )
+    @site = Site.find_by( uid: session[:user_id], id: params[:id] )
+    @sites = current_user.sites
   end
   def destroy
-    @site = Site.find_by( user_id: session[:user_id], id: params[:id] )
+    @site = Site.find_by( uid: session[:user_id], id: params[:id] )
     @site.destroy
     redirect_to sites_path
   end
   def load
-    @site = Site.find_by(name: request.subdomain)
+    @site = Site.where("domain = ? OR subdomain = ?", request.host, request.host).first
     if !@site
      render :html => 'Not Found', :layout => true
      return
@@ -30,7 +34,7 @@ class SitesController < ApplicationController
     end
   end
   def create
-    @site = Site.new site_params.merge( user_id: session[:user_id] )
+    @site = Site.new site_params.merge( uid: session[:user_id] )
     @db = get_client @site.creator.access_token
     if @site.save
       begin
@@ -43,9 +47,17 @@ class SitesController < ApplicationController
       render :new
     end
   end
+  def update
+    @site = Site.find_by( uid: session[:user_id], id: params[:id] )
+    if @site.update site_params.merge( uid: session[:user_id] )
+      redirect_to @site
+    else
+      render :edit
+    end
+  end
 
   private
   def site_params
-    params.require(:site).permit(:name)
+    params.require(:site).permit(:name, :domain)
   end
 end

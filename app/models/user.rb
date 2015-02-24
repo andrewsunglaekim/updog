@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :sites
+  has_many :sites, :foreign_key => :uid, :primary_key => :uid
   def self.create_with_omniauth( email, uid, name )
 	create! do |user|
 	  user.email = email

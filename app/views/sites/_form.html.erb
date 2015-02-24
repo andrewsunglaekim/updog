@@ -1,0 +1,21 @@
+<% if @site.errors.any? %>
+  <ul>
+  <% @site.errors.full_messages.each do |e| %>
+    <li> <%= e %></li>
+  <% end %>
+  </ul>
+<% end %>
+<%= form_for @site do |f| %>
+  <%= f.label :name %>
+  <div class='suffix-domain'>
+    <%= f.text_field :name %>
+  </div>
+  <br>
+  <div style='display:none'>
+  <%= f.label :domain %>
+  <%= f.text_field :domain %> (optional)
+  <br>
+  <br>
+  </div>
+  <%= f.submit 'Save', :class => 'btn-create' %>
+<% end %>

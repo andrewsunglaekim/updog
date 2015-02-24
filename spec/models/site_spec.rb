@@ -9,12 +9,12 @@ describe Site do
   end
   it "should have a domain" do
     s = Site.create( name: 'jjohn' )
-    expect(s.domain).to eq('jjohn.updog.co')
+    expect(s.subdomain).to eq('jjohn.updog.co')
     s.destroy
   end
-  it "should have a domain" do
+  it "should have a subdomain" do
     s = Site.create( name: '&& Pizzal -' )
-    expect(s.domain).to eq('pizzal.updog.co')
+    expect(s.subdomain).to eq('pizzal.updog.co')
     s.destroy
   end
   it "should replace non-word chars" do
@@ -36,5 +36,14 @@ describe Site do
     s = Site.create( name: '!!!Jimmy Johns!!!' )
     expect(s.name).to eq('jimmy-johns')
     s.destroy
+  end
+  it "'s domain shouldnt contain updog.co" do
+    s = Site.new( name: "onew" )
+    s.domain = "overrideusername.updog.co"
+    expect(s.valid?).to eq(false)
+    p s.errors
+    
+    #s.save
+    #s.destroy
   end
 end
