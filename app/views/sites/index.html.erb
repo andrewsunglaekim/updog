@@ -2,7 +2,11 @@
   <div class='wrapper'>
       <div class='sites'>
 	<% if @sites.length < 5 %>
-	  <%= link_to "Create New Site (#{5 - @sites.length} left)", new_site_path, :class => 'site-new btn-create' %>
+	  <div class='cf'>
+	    <div class='left'>
+	      <%= link_to "Create New Site (#{5 - @sites.length} left)", new_site_path, :class => 'site-new btn-create' %>
+	    </div>
+	  </div>
 	<% end %>
     <% if @sites.length != 0 %>
       <h2>Your Sites:</h2>
