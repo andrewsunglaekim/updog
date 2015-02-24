@@ -41,9 +41,15 @@ describe Site do
     s = Site.new( name: "onew" )
     s.domain = "overrideusername.updog.co"
     expect(s.valid?).to eq(false)
-    p s.errors
-    
-    #s.save
-    #s.destroy
+  end
+  it "'s domain should be a subdomain" do
+    s = Site.new( name: "onew" )
+    s.domain = "pizza.co"
+    expect(s.valid?).to eq(false)
+  end
+  it "'s domain should be a subdomain" do
+    s = Site.new( name: "onew" )
+    s.domain = "www.pizza.co"
+    expect(s.valid?).to eq(true)
   end
 end

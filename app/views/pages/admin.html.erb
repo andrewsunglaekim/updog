@@ -9,7 +9,7 @@
   <h3><%= @sites.length %> total sites.</h3>
   <ul>
   <% @sites.each do |s| %>
-    <li><%= link_to 'https://' + s.domain, 'https://' + s.domain %></li>
+    <li><%= link_to 'https://' + s.link, 'https://' + s.link %></li>
   <% end %>
   </ul>
 </div>
