@@ -11,6 +11,7 @@ class SitesController < ApplicationController
   end
   def show
     @site = Site.find_by( uid: session[:user_id], id: params[:id] )
+    @sites = current_user.sites
   end
   def destroy
     @site = Site.find_by( uid: session[:user_id], id: params[:id] )

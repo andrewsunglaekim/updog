@@ -3,7 +3,7 @@ class Site < ActiveRecord::Base
   validates :subdomain, uniqueness: { case_sensititve: false }
   validates :domain, uniqueness: { case_sensititve: false, allow_nil: true }
   validate :domain_isnt_updog
-  #validate :user_has_less_than_5_sites
+  validate :user_has_less_than_5_sites
   before_validation :namify
 
   def creator

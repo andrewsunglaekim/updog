@@ -24,6 +24,7 @@ body{
   width:80%;
   max-width:40em;
   margin:auto;
+
   &:after{
     content:' ';
     display:table;
@@ -81,16 +82,6 @@ header{
 }
 
 
-.site-new{
-  border:1px solid darken(lightGreen, 20%);
-  display:inline-block;
-  background:lightGreen;
-  color:#fff;
-  text-decoration:none;
-  padding:.75em 1em;
-  text-shadow:1px 1px 0 darken(lightGreen, 40%);
-  font-weight:bold;
-}
 
 .js-fit{
   margin:0;
@@ -112,7 +103,7 @@ nav{
   }
 }
 
-.sites{
+.main{
   padding:2em 0;
 }
 
@@ -125,16 +116,34 @@ nav{
   padding:0;
   list-style:none;
   a{
+    text-decoration:none;
+    color:inherit;
+  }
+  
+  li{
     display:block;
     padding:1em 0;
     border-bottom:1px solid #eee;
     font-weight:bold;
-    text-decoration:none;
-    color:inherit;
   }
-    li:first-child a{
-      border-top:1px solid #eee;
-    }
+  li:first-child {
+    border-top:1px solid #eee;
+  }
+  [class^="btn"]{
+    color:#fff;
+    opacity:0;
+    transform:translateX(10px);
+    font-size:.8em;
+    padding:.25em .5em;
+    transition:all .2s ease;
+  }
+  li:hover [class^="btn"]{
+    opacity:1; 
+    transform:translateX(0px);
+  }
+  li:hover [class^="btn"]:nth-child(2){
+    transition-delay:.1s;
+  }
 }
 
 @media all and(max-width:40em){
@@ -152,3 +161,41 @@ nav{
     }
   }
 }
+
+.site-title{
+  margin-bottom:0;
+  margin-top:2em;
+  a{
+    text-decoration:none;
+    color:inherit;
+  }
+
+}
+.btn-edit,
+.btn-create,
+.btn-delete{
+  display:inline-block;
+  padding:.5em 1em;
+  text-decoration:none;
+  border-radius:3px;
+  font-size:.8em;
+  font-size:.8em;
+  font-weight:bold;
+  color:#fff;
+}
+@mixin colorize($color){
+  background:$color;
+  border:1px solid darken($color, 10%);
+  text-shadow:1px 1px 0 darken($color, 20%);
+}
+.btn-edit{
+  @include colorize(#F7CF10);
+}
+.btn-delete{
+  @include colorize(#EC4E42);
+}
+.btn-create{
+  @include colorize(#54C65D);
+}
+
+

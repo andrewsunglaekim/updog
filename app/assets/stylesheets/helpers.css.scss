@@ -1,0 +1,14 @@
+.left{
+  float:left;
+}
+.right{
+  float:right;
+}
+
+.cf, .clearfix{
+  &:after{
+    content:' ';
+    display:table;
+    clear:both;
+  }
+}
