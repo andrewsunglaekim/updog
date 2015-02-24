@@ -14,7 +14,7 @@
 	<% @sites.each do |s| %>
 	  <li class='cf'>
 
-	  <div class='left'><%= link_to s.name, site_path( s.id ) %> </div> <div class='right'> <%= link_to 'Edit Site', edit_site_path( s ), :class => 'btn-edit' %> <%= link_to 'Delete Site', site_path( s ), :class=> 'btn-delete', method: :delete %> </div>
+	  <div class='left'><%= link_to s.name, site_path( s ) %> </div> <div class='right'> <%= link_to 'Edit Site', edit_site_path( s ), :class => 'btn-edit' %> <%= link_to 'Delete Site', site_path( s ), :class=> 'btn-delete', method: :delete %> </div>
 	  </li>
 	<% end %>
       </ul>
