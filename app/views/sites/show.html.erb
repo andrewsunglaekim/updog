@@ -20,7 +20,7 @@
 <h3>Instructions</h3>
 <ol>
   <li>Add your site to your Dropbox folder in <strong>~/Dropbox/Apps/updog/<%= @site.name %></strong></li>
-  <% if @site.domain != "" %>
+  <% if @site.domain && @site.domain != "" %>
     <li><a href='//<%= @site.domain %>'> View Site </a></li>
   <% else %>
     <li><a href='//<%= @site.subdomain %>'> View Site </a></li>
