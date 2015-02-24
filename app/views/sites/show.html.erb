@@ -10,7 +10,7 @@
 <%= link_to 'Delete Site', site_path( @site ), :class=> 'btn-delete', method: :delete %>
 </div>
 </div>
-  <h2 class='site-title'><a href='http://<%= @site.name %>.updog.co'><%= @site.name %> <small>&#10138;</small></a></h2>  
+  <h2 class='site-title'><a href='//<%= @site.link %>'><%= @site.name %> <small>&#10138;</small></a></h2>  
 
 
   <small>Created at <time><%= @site.created_at.strftime("%B %d, %Y") %></time></small>
@@ -20,10 +20,6 @@
 <h3>Instructions</h3>
 <ol>
   <li>Add your site to your Dropbox folder in <strong>~/Dropbox/Apps/updog/<%= @site.name %></strong></li>
-  <% if @site.domain && @site.domain != "" %>
-    <li><a href='//<%= @site.domain %>'> View Site </a></li>
-  <% else %>
-    <li><a href='//<%= @site.subdomain %>'> View Site </a></li>
-  <% end %>
+    <li><a href='//<%= @site.link %>'> View Site </a></li>
 </ol>
 </div>

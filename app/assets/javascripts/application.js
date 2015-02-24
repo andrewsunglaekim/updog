@@ -17,4 +17,7 @@
 
 $(function(){
   $('.js-fit').fitText(.4);
+  $('[data-toggle]').on('click', function(){
+    $($(this).data('toggle')).toggle();
+  })
 });

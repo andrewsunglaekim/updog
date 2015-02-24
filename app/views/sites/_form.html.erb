@@ -11,11 +11,20 @@
     <%= f.text_field :name %>
   </div>
   <br>
-  <div style='display:none'>
   <%= f.label :domain %>
-  <%= f.text_field :domain %> (optional)
-  <br>
-  <br>
-  </div>
+  <%= f.text_field :domain %> (optional) <small data-toggle=".instructions">What is this?</small><br><br>
   <%= f.submit 'Save', :class => 'btn-create' %>
+  <div class='instructions'>
+  <p>Using your own custom domain? To enable this feature:</p>
+  <ol>
+    <li>Log in to your DNS host.</li>
+    <li>Create a new CNAME record that points to updog.co</li>
+    <li>Save your changes and wait for the DNS to propagate.</li>
+    <li>Need help? email <a href='mailto:jesse@updog.co'>jesse@updog.co</a></li>
+  </ol>
+  <p>Here’s what that process looks like on Digital Ocean:</p>
+  <img src='https://dl.dropboxusercontent.com/s/4ksisxk7khatbi7/do.gif?dl=0'>
+  </div>
+  <br>
+  <br>
 <% end %>

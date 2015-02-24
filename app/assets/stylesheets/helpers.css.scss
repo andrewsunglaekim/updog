@@ -4,6 +4,13 @@
 .right{
   float:right;
 }
+img{
+
+max-width:100%}
+
+.instructions{
+  display:none;
+}
 
 @media all and (max-width:40em){
   .left, .right{
