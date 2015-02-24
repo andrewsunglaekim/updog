@@ -15,7 +15,7 @@
  */
 
 body{
-  font-family:'Helvetica Neue', sans-serif;
+  font-family:'Open Sans','Helvetica Neue', sans-serif;
   line-height:1.5;
   margin:0;
   background:#fefefe;
@@ -34,7 +34,7 @@ body{
 
 .splash{
   margin-top:-2em;
-  background:url(https://ununsplash.imgix.net/photo-1416431168657-a6c4184348ab?q=75&fm=jpg&s=20ba248730c200af0d30c9ba81854867);
+  background:url(https://unsplash.imgix.net/41/bXoAlw8gT66vBo1wcFoO_IMG_9181.jpg?q=75&fm=jpg&s=a760fd82863937c841f4b3870cdef011);
   padding:2em 0;
   background-size:cover;
   background-position:0 -10px;
@@ -94,7 +94,6 @@ nav{
   float:right;
   a{
     display:inline-block;
-    font-family:'Lucida Grande';
     font-size:.8em;
     letter-spacing:.05em;
     text-decoration:none;
@@ -187,7 +186,6 @@ nav{
   border-radius:3px;
   font-size:.8em;
   font-size:.8em;
-  font-weight:bold;
   color:#fff;
 }
 @mixin colorize($color){
