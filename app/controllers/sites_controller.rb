@@ -16,7 +16,7 @@ class SitesController < ApplicationController
   def destroy
     @site = Site.find_by( uid: session[:user_id], id: params[:id] )
     @site.destroy
-    redirect_to sites_path, :notice => undo_link
+    redirect_to sites_path, :notice => "Deleted. #{undo_link}?"
   end
   def load
     @site = Site.where("domain = ? OR subdomain = ?", request.host, request.host).first
