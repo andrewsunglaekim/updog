@@ -1,5 +1,6 @@
 class Site < ActiveRecord::Base
   belongs_to :user, :foreign_key => :uid, :primary_key => :uid
+  has_paper_trail
   validates :subdomain, uniqueness: { case_sensititve: false }
   validates :name, presence: true
   validates :domain, uniqueness: { case_sensititve: false, allow_blank: true }

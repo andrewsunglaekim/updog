@@ -16,7 +16,7 @@ class SitesController < ApplicationController
   def destroy
     @site = Site.find_by( uid: session[:user_id], id: params[:id] )
     @site.destroy
-    redirect_to sites_path
+    redirect_to sites_path, :notice => "Deleted. #{undo_link}?"
   end
   def load
     @site = Site.where("domain = ? OR subdomain = ?", request.host, request.host).first
@@ -59,5 +59,8 @@ class SitesController < ApplicationController
   private
   def site_params
     params.require(:site).permit(:name, :domain)
+  end
+  def undo_link
+    view_context.link_to("undo", revert_version_path(@site.versions.last), :method => :post)
   end
 end

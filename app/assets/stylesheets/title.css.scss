@@ -1,3 +1,16 @@
+$notice: lightBlue;
+.notice{
+  padding:.5em 1em;
+  background:$notice;
+  margin-bottom:1em;
+  border-radius:3px;
+  border: 2px solid darken($notice, 20%);
+  &, a{
+    color:#fff;
+  }
+}
+
+
 .site-title{
   margin-bottom:0;
   margin-top:2em;
