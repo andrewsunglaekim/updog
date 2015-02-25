@@ -2,15 +2,16 @@
   <div class='cf'>
   <div class='left'>
 	<% if @sites.length < 5 %>
-	  <%= link_to "Create New Site (#{5 - @sites.length} left)", new_site_path, :class => 'site-new btn-create' %>
+	  <a href='<%= new_site_path %>' class='site-new btn-create'><i class="fa fa-plus-circle"></i> Create New Site (<%= 5 - @sites.length %> left)</a>
 	<% end %>
   </div>
   <div class='right'>
-<%= link_to 'Edit Site', edit_site_path( @site ), :class => 'btn-edit' %>
-<%= link_to 'Delete Site', site_path( @site ), :class=> 'btn-delete', method: :delete %>
+    <a href='<%= edit_site_path( @site ) %>' class='btn-edit'><i class="fa fa-pencil"></i> Edit</a>
+<a data-method="delete" rel="nofollow" href='<%= site_path(@site) %>' class='btn-delete'><i class="fa fa-times"></i>
+Delete </a>
 </div>
 </div>
-  <h2 class='site-title'><a href='//<%= @site.link %>'><%= @site.name %> <small>&#10138;</small></a></h2>  
+<h2 class='site-title'><a href='//<%= @site.link %>'><%= @site.name %> <small><i class="fa fa-external-link"></i> </small></a></h2>  
 
 
   <small>Created at <time><%= @site.created_at.strftime("%B %d, %Y") %></time></small>

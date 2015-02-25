@@ -4,7 +4,7 @@
 	<% if @sites.length < 5 %>
 	  <div class='cf'>
 	    <div class='left'>
-	      <%= link_to "Create New Site (#{5 - @sites.length} left)", new_site_path, :class => 'site-new btn-create' %>
+	      <a href='<%= new_site_path %>' class='site-new btn-create'><i class="fa fa-plus-circle"></i> Create New Site (<%= 5 - @sites.length %> left)</a>
 	    </div>
 	  </div>
 	<% end %>

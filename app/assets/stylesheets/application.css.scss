@@ -19,6 +19,7 @@ body{
   line-height:1.5;
   margin:0;
   background:#fefefe;
+  color:#444;
 }
 .wrapper{
   width:80%;
@@ -133,8 +134,9 @@ nav{
     color:#fff;
     opacity:0;
     transform:translateX(10px);
-    font-size:.8em;
+    font-size:.75em;
     padding:.25em .5em;
+    font-weight:normal;
     transition:all .2s ease;
   }
   @media all and (max-width:40em){
@@ -167,15 +169,6 @@ nav{
   }
 }
 
-.site-title{
-  margin-bottom:0;
-  margin-top:2em;
-  a{
-    text-decoration:none;
-    color:inherit;
-  }
-
-}
 .btn-edit,
 .btn-create,
 .btn-delete{
@@ -185,7 +178,7 @@ nav{
   cursor:pointer;
   border-radius:3px;
   font-size:.8em;
-  font-size:.8em;
+  font-weight:normal;
   color:#fff;
 }
 @mixin colorize($color){
