@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'figaro'
 gem 'dropbox-sdk' 
+gem 'paper_trail'
 gem 'httparty'
 gem 'pry'
 gem 'rails_12factor'

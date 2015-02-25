@@ -1,5 +1,6 @@
 <% if session['access_token'] %>
   <div class='wrapper'>
+    <%= notice && notice.html_safe %>
       <div class='sites'>
 	<% if @sites.length < 5 %>
 	  <div class='cf'>

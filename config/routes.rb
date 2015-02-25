@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   get '/admin', to: 'pages#admin'
   get '/webhook', to: 'webhook#challenge'
   post '/webhook', to: 'webhook#post'
-  resources :sites, path: '' do
-
-  end
+  post "/versions/:id/revert", to: "versions#revert", as: "revert_version"
+  resources :sites, path: '' 
 end
