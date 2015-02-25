@@ -101,6 +101,9 @@ nav{
     color:inherit;
     padding:1.25em;
     position:relative;
+    &:last-child{
+      padding-right:0;
+    }
   }
 }
 
