@@ -2,4 +2,17 @@
   <h2>View Source</h2>
   <p>In the spirit of open source, you can download this site’s source
   from <a href='https://github.com/jshawl/updog'>GitHub</a>.</p>
+  <p>Updog is a Ruby on Rails application that interfaces with the
+  DropBox API. This application converts requests to updog.co to DropBox,
+  and sends back the result.</p>
+  <p>In order to reduce my chances of hitting the DropBox API rate limits,
+  requests to the API are cached for 30 seconds using memcached.</p>
+
+  <p>Here are links to the more interesting parts of the code:</p>
+  <ul>
+    <li><a href='https://github.com/jshawl/updog/blob/master/app/controllers/sessions_controller.rb'>Log In with DropBox</a></li>
+    <li><a href='https://github.com/jshawl/updog/blob/master/app/controllers/sites_controller.rb'>Create, edit, delete sites</a></li>
+    <li><a href='https://github.com/jshawl/updog/blob/master/app/models/site.rb'>Load file from Dropbox API</a></li>
+  </ul>
+
 </div>
